@@ -1,0 +1,104 @@
+{
+  // See https://go.microsoft.com/fwlink/?LinkId=733558
+  // for the documentation about the tasks.json format
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "chapter-3 末課題 / 全てのチャプターの環境構築タスク",
+      "type": "shell",
+      "dependsOrder": "sequence",
+      "dependsOn": [
+        "構成: MySQL8.0のイメージを作成するタスク",
+        "構成: PHP 8.3.1 Apache2.4 のbookwormイメージを作成するタスク",
+        "チャプター4のコンテナを作成するタスク",
+        "チャプター5のコンテナを作成するタスク",
+        "チャプター6のコンテナを作成するタスク",
+        "チャプター7のコンテナを作成するタスク",
+        "echo finish task"
+      ]
+    },
+
+    // #region vendorフォルダの同期をするタスク
+    {
+      "label": "chapter-6/src/vendor の同期をするタスク",
+      "type": "shell",
+      "command": "docker compose -p chapter6 cp web:/var/www/html/src/vendor ${workspaceFolder}/chapter-6/src"
+    },
+    {
+      "label": "chapter-7/src/vendor の同期をするタスク",
+      "type": "shell",
+      "command": "docker compose -p chapter7 cp web:/var/www/html/src/vendor ${workspaceFolder}/chapter-7/src"
+    },
+    // #endregion vendorフォルダの同期をするタスク
+
+    //#region コンテナ作成タスク
+    {
+      // PHP設定済みApacheサーバのイメージを元にチャプター4用のコンテナを作成するタスク
+      "label": "チャプター4のコンテナを作成するタスク",
+      "type": "shell",
+      "command": "docker create --name chapter4 -p 80:80 -v ${workspaceFolder}/chapter-4:/var/www/html/src/public php-web-built"
+    },
+    {
+      // ローカルで作成したMySQLサーバのイメージを元にチャプター5用のコンテナを作成するタスク
+      "label": "チャプター5のコンテナを作成するタスク",
+      "type": "shell",
+      "command": "docker create --name chapter5 -v chapter5-db-store:/var/lib/mysql -v ${workspaceFolder}/chapter-5/script:/docker-entrypoint-initdb.d -p 3306:3306 mysql8-built"
+    },
+    {
+      // docker-compose.ymlを元にチャプター6用のコンテナ群を初回に作成するタスク
+      "label": "チャプター6のコンテナを作成するタスク",
+      "type": "shell",
+      "command": "docker compose -f ${workspaceFolder}/docker/webapp-composition/docker-compose.yml -p chapter6 up -d --build --no-start",
+      "options": {
+        "env": {
+          "WEB_VOLUME": "${workspaceFolder}/chapter-6/src"
+        }
+      }
+    },
+    {
+      // docker-compose.ymlを元にチャプター7用のコンテナ群を初回に作成するタスク
+      "label": "チャプター7のコンテナを作成するタスク",
+      "type": "shell",
+      "command": "docker compose -f ${workspaceFolder}/docker/webapp-composition/docker-compose.yml -p chapter7 up -d --build --no-start",
+      "options": {
+        "env": {
+          "WEB_VOLUME": "${workspaceFolder}/chapter-7/src"
+        }
+      }
+    },
+    //#endregion コンテナ作成タスク
+
+    //#region ローカルイメージをビルドするタスク
+    {
+      // MySQL8.0のイメージをビルドしてローカルのイメージとして保存する
+      "label": "構成: MySQL8.0のイメージを作成するタスク",
+      "type": "shell",
+      "command": "docker build ${workspaceFolder}/docker/mysql -t mysql8-built"
+    },
+    {
+      // php8.3.1/apacheのイメージをビルドしてローカルのイメージとして保存する
+      "label": "構成: PHP 8.3.1 Apache2.4 のbookwormイメージを作成するタスク",
+      "type": "shell",
+      "command": "docker build ${workspaceFolder}/docker/php-web -t php-web-built"
+    },
+    //#endregion ローカルイメージをビルドするタスク
+
+    {
+      // タスクが完了したことをコンソールに通知するタスク
+      "label": "echo finish task",
+      "type": "shell",
+      "hide": true,
+      "command": [
+        "echo ==============================================\n echo タスクが完了しました。このターミナルを終了してください。 \n echo ==============================================",
+      ],
+      "presentation": {
+        "echo": false,
+        "reveal": "always",
+        "focus": true,
+        "panel": "shared",
+        "showReuseMessage": false,
+        "clear": true
+      }
+    }
+  ]
+}

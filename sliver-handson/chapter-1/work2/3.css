@@ -1,0 +1,5 @@
+/*Hello worldのサイズを100px　文字色を赤色に指定*/
+.string {
+  font-size: 100px;
+  color: red;
+}

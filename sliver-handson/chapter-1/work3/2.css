@@ -1,0 +1,23 @@
+/* ここから処理を記述 */
+
+/*
+# 課題
+        1. h1要素とul要素のリストを横並びで表示。
+        2. h1要素を幅500px、高さ42px、背景色を赤色に変更。
+        - li要素の横幅を各200pxへ。背景を赤色に変更。
+        - li要素の黒点（・）を非表示に  ※HTML li 黒点 非表示 などで検索
+        課題の条件が満たせていることを確認して、このファイルを提出してください。
+ */
+
+h1 {
+  width: 500px;
+  height: 42px;
+  background-color: red;
+}
+
+li {
+  width: 200px;
+  background-color: red;
+  list-style: none;
+  display: inline;
+}

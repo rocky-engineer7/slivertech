@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <title>課題2-1-17</title>
+  </head>
+  <body>
+    <h1>課題2-1-17</h1>
+    <h2>
+      課題の内容は、ソースコードの13行目からです。<br />VSCodeでこのファイルを開いて、13行目からのコメントの指示に従って作業してください。
+    </h2>
+    <p>プログラムの実行結果は開発者ツールのコンソールに表示されています。</p>
+    <br />
+    <p>
+      コンソールを開くには、画面で右クリックして、「検証」という項目をクリックします。<br />（Windowsであれば、F12キーでも開けます）
+    </p>
+    <script>
+      /*
+        # 課題
+        - オブジェクト「classInfo」のteacherをコンソールに出力してください。
+        - オブジェクト「classInfo」のnameを「4年B組」に変更して、コンソールに出力してください。
+        - オブジェクト「classInfo」内にある、「留年 し太郎」のageをコンソールに出力してください。
+        - オブジェクト「classInfo」に、新しいキー「subTeacher」を追加して、 「銀七先生」という値をセットしてコンソールに出力してください。
+        - 上の課題を満たせたら、このファイルを提出してください。
+      */
+
+      const classInfo = {
+        name: "3年B組",
+        teacher: "金八先生",
+        student: [
+          { name: "田中 太郎", age: 17 },
+          { name: "大山 次郎", age: 18 },
+          { name: "秋田 三郎", age: 17 },
+          { name: "留年 し太郎", age: 19 },
+        ],
+      };
+      // ここより上の行は編集禁止です。
+
+      // オブジェクト「classInfo」のteacherをコンソールに出力してください。
+      console.log(classInfo.teacher);
+
+      // オブジェクト「classInfo」のnameを「4年B組」に変更して、コンソールに出力してください。
+      classInfo.name = "4年B組";
+      console.log(classInfo.name);
+
+      // オブジェクト「classInfo」内にある、「留年 し太郎」のageをコンソールに出力してください。
+      console.log(classInfo.student[3].age);
+
+      // オブジェクト「classInfo」に、新しいキー「subTeacher」を追加して、 「銀七先生」という値をセットしてコンソールに出力してください。
+      classInfo.subTeacher = "銀七先生";
+      console.log(classInfo.subTeacher);
+    </script>
+  </body>
+</html>

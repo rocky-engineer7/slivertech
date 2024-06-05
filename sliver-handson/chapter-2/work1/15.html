@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <title>課題2-1-15</title>
+  </head>
+  <body>
+    <h1>課題2-1-15</h1>
+    <h2>
+      課題の内容は、ソースコードの13行目からです。<br />VSCodeでこのファイルを開いて、13行目からのコメントの指示に従って作業してください。
+    </h2>
+    <p>プログラムの実行結果は開発者ツールのコンソールに表示されています。</p>
+    <br />
+    <p>
+      コンソールを開くには、画面で右クリックして、「検証」という項目をクリックします。<br />（Windowsであれば、F12キーでも開けます）
+    </p>
+    <script>
+      /*
+        # 課題
+        - 「year」という引数を受け取る「futureAgeAnswer」という関数を宣言して、
+          2023に引数yearを足した値を返り値として返却する処理を行う関数にしてください。
+        - 関数futureAgeAnswerに、引数「10」を与えて呼び出して、その結果をコンソールに出力してください。
+        - 関数futureAgeAnswerに、引数「20」を与えて呼び出して、その結果をコンソールに出力してください。
+        - 関数futureAgeAnswerに、引数として定数argを与えて呼び出して、その結果をコンソールに出力してください。
+        - 上の課題を満たせたら、このファイルを提出してください。
+      */
+
+      const arg = Math.floor(Math.random() * 100);
+      // ここより上の行は編集禁止です。
+
+      // 「year」という引数を受け取る「futureAgeAnswer」という関数を宣言して、
+      // 2023に引数yearを足した値を返り値として返却する処理を行う関数にしてください。
+      function futureAgeAnswer(year) {
+        let result;
+
+        result = 2023 + year;
+
+        return result;
+      }
+
+      // 関数futureAgeAnswerに、引数「10」を与えて呼び出して、その結果をコンソールに出力してください。
+      console.log(futureAgeAnswer(10));
+      // 関数futureAgeAnswerに、引数「20」を与えて呼び出して、その結果をコンソールに出力してください。
+      console.log(futureAgeAnswer(20));
+      // 関数futureAgeAnswerに、引数として定数argを与えて呼び出して、その結果をコンソールに出力してください。
+      console.log(futureAgeAnswer(arg));
+    </script>
+  </body>
+</html>

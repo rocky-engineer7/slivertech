@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <title>課題2-1-5</title>
+  </head>
+  <body>
+    <h1>課題2-1-5</h1>
+    <h2>
+      課題の内容は、ソースコードの13行目からです。<br />VSCodeでこのファイルを開いて、13行目からのコメントの指示に従って作業してください。
+    </h2>
+    <p>プログラムの実行結果は開発者ツールのコンソールに表示されています。</p>
+    <br />
+    <p>
+      コンソールを開くには、画面で右クリックして、「検証」という項目をクリックします。<br />（Windowsであれば、F12キーでも開けます）
+    </p>
+    <script>
+      /*
+        # 課題
+        1. 23行目より下に、「定数joukanAが90未満であれば、joukanAの値をコンソールに出力する」というプログラムを書いてください。
+        2. 1.のプログラムより下に、「定数joukanBが100未満であれば、joukanBの値をコンソールに出力する」というプログラムを書いてください。
+        3. 2.のプログラムより下に、コメントで、「1.と2.のプログラムの結果、コンソールに何が出力されたか」という結果を書いてください。
+        - 上の課題を満たせたら、このファイルを提出してください。
+        (joukenA, joukenBは毎回ランダムな数字になるので、実行のたびに結果が変わります)
+      */
+
+      const joukenA = Math.floor(Math.random() * 60) + 60;
+      const joukenB = Math.floor(Math.random() * 60) + 60;
+      console.log(`joukenA = ${joukenA}, joukenB = ${joukenB}`);
+      // ここより上の行は編集禁止です。
+
+      // 1
+      if (joukenA < 90) {
+        console.log(joukenA);
+      }
+
+      // 2
+      if (joukenB < 100) {
+        console.log(joukenB);
+      }
+
+      // 3
+      // joukenA = 64, joukenB = 94
+      // 64
+      // 94
+    </script>
+  </body>
+</html>

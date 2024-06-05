@@ -1,0 +1,4 @@
+{
+  "docker.containers.label": "ContainerName",
+  "docker.containers.sortBy": "Label"
+}

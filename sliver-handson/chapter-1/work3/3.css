@@ -1,0 +1,29 @@
+/* ここから処理を記述 */
+
+/* # 課題
+        1. h1要素の背景色を赤色に変更、幅を130pxに指定。
+        2. 「タイトル」テキストをページ中央にくるように記述。
+        3. class="mainBox"の背景色を赤色に変更
+        4. class="mainBox"の大きさを高さ200px 幅500pxに変更
+        5. class="mainBox"の上のpaddingを50px  左のpaddingを30px追加
+        課題の条件が満たせていることを確認して、このファイルを提出してください。
+*/
+
+h1 {
+  background-color: red;
+  width: 130px;
+  text-align: center;
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+}
+
+.mainBox {
+  background-color: red;
+  height: 200px;
+  width: 500px;
+  padding-top: 50px;
+  padding-left: 30px;
+}

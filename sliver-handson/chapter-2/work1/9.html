@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <title>課題2-1-9</title>
+  </head>
+  <body>
+    <h1>課題2-1-9</h1>
+    <h2>
+      課題の内容は、ソースコードの13行目からです。<br />VSCodeでこのファイルを開いて、13行目からのコメントの指示に従って作業してください。
+    </h2>
+    <p>プログラムの実行結果は開発者ツールのコンソールに表示されています。</p>
+    <br />
+    <p>
+      コンソールを開くには、画面で右クリックして、「検証」という項目をクリックします。<br />（Windowsであれば、F12キーでも開けます）
+    </p>
+    <script>
+      /*
+        # 課題
+        1. 定数mathPointと定数englishPointのどちらも90以上のとき、'A高校に合格!'とコンソールに出力するコードを書いてください。
+        2. 定数mathPointまたは定数englishPointのどちらかが90以上のとき、'B高校に合格!'とコンソールに出力するコードを書いてください。
+        (mathPoint, englishPointは毎回ランダムな数字になるので、実行のたびに結果が変わります)
+        - 上の課題を満たせたら、このファイルを提出してください。
+      */
+
+      const mathPoint = Math.floor(Math.random() * 20) + 80;
+      const englishPoint = Math.floor(Math.random() * 20) + 80;
+      // ここより上の行は編集禁止です。
+
+      // テスト用
+      console.log(mathPoint);
+      console.log(englishPoint);
+
+      // 1. 定数mathPointと定数englishPointのどちらも90以上のとき、'A高校に合格!'とコンソールに出力するコードを書いてください。
+      if (mathPoint >= 90 && englishPoint >= 90) {
+        console.log("A高校に合格");
+      }
+
+      // 2. 定数mathPointまたは定数englishPointのどちらかが90以上のとき、'B高校に合格!'とコンソールに出力するコードを書いてください。
+      if (mathPoint >= 90 || englishPoint >= 90) {
+        console.log("B高校に合格");
+      }
+    </script>
+  </body>
+</html>
