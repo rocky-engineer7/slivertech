@@ -141,10 +141,10 @@ class HomeController extends Controller
     }
 
     // メモ削除
-    public function destroy(Request $request)
+    public function destroy($memo_id)
     {
-        // updateメソッドの処理とほとんど同じ。まずは　Modelに搭載されているfindメソッドでidからレコードを特定して、それに対しdeleteメソッドを実行するとレコードが削除されるように作られている。
-        $memo = Memo::find($request->memo_id);
+        // updateメソッドの処理とほとんど同じ。まずはModelに搭載されているfindメソッドでidからレコードを特定して、それに対しdeleteメソッドを実行するとレコードが削除されるように作られている。
+        $memo = Memo::find($memo_id);
 
         if ($memo !== null) {
             $memo->delete();

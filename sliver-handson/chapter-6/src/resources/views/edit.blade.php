@@ -29,9 +29,9 @@
                 </div>
             </form>
 
-            <form class="m-2" action="{{ route('destroy') }}" method="post">
+            <form class="m-2" action="{{ route('destroy', $edit_memo->id) }}" method="post">
                 @csrf
-                <input type="hidden" name="memo_id" value="{{ $edit_memo->id }}">
+                @method('DELETE')  <!-- DELETEメソッドを指定 -->
                 <button class="btn btn-danger">メモを削除</button>
             </form>
         </div>

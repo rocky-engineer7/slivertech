@@ -34,4 +34,4 @@ Route::get('/edit/{memo_id}', [App\Http\Controllers\HomeController::class, 'edit
 Route::post('/update/{memo_id}', [App\Http\Controllers\HomeController::class, 'update'])->name('update');
 
 // メモ削除
-Route::post('/destroy', [App\Http\Controllers\HomeController::class, 'destroy'])->name('destroy');
+Route::delete('/memos/{memo_id}', [App\Http\Controllers\HomeController::class, 'destroy'])->name('destroy');
