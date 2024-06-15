@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +18,20 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Auth::routes();
+
+// ルート
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
+Route::post('/store', [App\Http\Controllers\HomeController::class, 'store'])->name('store');
+
+// メモ編集
+Route::get('/edit/{memo_id}', [App\Http\Controllers\HomeController::class, 'edit'])->name('edit');
+
+// メモ編集画面更新
+Route::post('/update/{memo_id}', [App\Http\Controllers\HomeController::class, 'update'])->name('update');
+
+// メモ削除
+Route::post('/destroy', [App\Http\Controllers\HomeController::class, 'destroy'])->name('destroy');
